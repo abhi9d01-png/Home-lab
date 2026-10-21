@@ -1,0 +1,113 @@
+
+# =========================
+# Secrets and credentials
+# =========================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+secrets.txt
+credentials.txt
+
+# =========================
+# SSH private keys
+# =========================
+id_rsa
+id_ed25519
+id_ecdsa
+*.ppk
+
+# =========================
+# Local configuration
+# =========================
+*.local
+config.local.*
+*.override.yaml
+*.override.yml
+
+# =========================
+# Logs and temporary files
+# =========================
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# =========================
+# Operating system files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+.Trash-*
+lost+found/
+
+# =========================
+# Editor and IDE files
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# Python-generated files
+# =========================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# =========================
+# Node.js-generated files
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# =========================
+# Virtual machines and disk images
+# =========================
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.qcow2
+*.ova
+*.ovf
+
+# =========================
+# Large disk images and archives
+# =========================
+*.iso
+*.img
+*.raw
+*.tar
+*.tar.gz
+*.zip
+
+# =========================
+# Local databases and backups
+# =========================
+*.sqlite
+*.sqlite3
+*.db
+backups/
+backup/
+
+# =========================
+# Generated reports
+# =========================
+*.out
+*.pid
+coverage/
+dist/
+build/
