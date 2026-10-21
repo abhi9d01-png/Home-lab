@@ -1,0 +1,236 @@
+
+# 01 — Linux Server Administration
+
+**Project:** ThinkCentre Home Lab  
+**Platform:** Lenovo ThinkCentre M91p  
+**Operating System:** Linux Mint  
+**Focus:** Linux administration, system monitoring, services, storage, and troubleshooting.
+
+## 1. Overview
+
+This project documents the configuration, administration, and maintenance of my Linux-based home lab server.
+
+The goal is to develop practical Linux system administration skills by inspecting system resources, managing services, understanding logs, and troubleshooting common issues.
+
+The project uses existing hardware and free software.
+
+## 2. Objectives
+
+- Understand the Linux system architecture and environment.
+- Inspect CPU, memory, storage, and system resource usage.
+- Learn service management using systemd.
+- Understand users, groups, and file permissions.
+- Inspect system logs and diagnose failures.
+- Explore SSH for remote administration.
+- Create repeatable system health checks.
+- Document troubleshooting procedures and verified results.
+
+## 3. Environment
+
+| Component | Details |
+|---|---|
+| Hardware | Lenovo ThinkCentre M91p |
+| Operating System | Linux Mint |
+| RAM | Exact capacity to be verified |
+| Storage | Internal drive; specifications to be documented |
+| Network | Home router |
+| Shell | Bash |
+| Service Manager | systemd |
+
+See [`../../docs/hardware-inventory.md`](../../docs/hardware-inventory.md) for hardware details.
+
+## 4. System Information
+
+### Operating System
+
+```bash
+hostnamectl
+cat /etc/os-release
+uname -r
+```
+
+### CPU and Memory
+
+```bash
+lscpu
+free -h
+uptime
+```
+
+### Storage
+
+```bash
+lsblk
+df -h
+```
+
+### Running Services
+
+```bash
+systemctl --failed
+systemctl list-units --type=service --state=running
+```
+
+### Network Information
+
+```bash
+ip -br addr
+ip route
+```
+
+Record relevant results and explain what they reveal about the system.
+
+## 5. Service Management
+
+Linux services can be inspected and managed using systemd.
+
+Check a service:
+
+```bash
+systemctl status SERVICE_NAME
+```
+
+Inspect recent service logs:
+
+```bash
+journalctl -u SERVICE_NAME -n 50 --no-pager
+```
+
+Check system errors:
+
+```bash
+journalctl -p err -b --no-pager
+```
+
+Replace `SERVICE_NAME` with an actual service name.
+
+Do not disable or stop unfamiliar services without understanding their purpose.
+
+## 6. Users and Permissions
+
+Inspect the current user:
+
+```bash
+whoami
+id
+groups
+```
+
+Inspect file permissions:
+
+```bash
+ls -lah
+```
+
+Learning objectives:
+
+- Understand users and groups.
+- Interpret Linux file permissions.
+- Apply least-privilege principles.
+- Understand when administrator privileges are necessary.
+
+Test permission changes on a dedicated test directory rather than important system files.
+
+## 7. System Health Monitoring
+
+The following commands help inspect resource usage:
+
+```bash
+free -h
+df -h
+uptime
+top
+```
+
+Areas to monitor:
+
+- CPU utilization and system load.
+- Available memory and swap usage.
+- Disk capacity and filesystem usage.
+- Failed services.
+- Unexpected system errors.
+
+### Future improvement
+
+Develop a Bash script that produces a simple system health report containing timestamps, memory usage, disk usage, uptime, and failed service counts.
+
+## 8. Remote Administration with SSH
+
+SSH can provide secure remote terminal access from another device on the local network.
+
+Before enabling it:
+
+1. Confirm remote administration is needed.
+2. Check whether an SSH server is already installed.
+3. Configure authentication securely.
+4. Restrict access to trusted devices.
+5. Test connectivity before relying on remote access.
+
+Do not publish private keys, passwords, or sensitive connection details.
+
+## 9. Troubleshooting Methodology
+
+For every issue, document:
+
+1. **Symptoms:** What happened?
+2. **Investigation:** Which commands and logs were inspected?
+3. **Hypothesis:** What was the suspected cause?
+4. **Resolution:** What change was made?
+5. **Verification:** What evidence proves the fix worked?
+6. **Lessons learned:** What would make diagnosis easier next time?
+
+### Incident Log
+
+| Date | Issue | Root Cause | Resolution | Status |
+|---|---|---|---|---|
+| To be recorded | To be recorded | To be verified | To be documented | Pending |
+
+Only record a root cause or fix after it has been verified.
+
+## 10. Security Practices
+
+- Keep the operating system and packages updated.
+- Use strong authentication.
+- Avoid unnecessary administrator privileges.
+- Review SSH settings before enabling remote access.
+- Keep credentials and private keys out of Git.
+- Review firewall rules and exposed services.
+- Back up important configuration and application data.
+- Document security changes and their verification.
+
+## 11. Evidence and Documentation
+
+Add sanitized screenshots and test results as the project develops.
+
+Suggested evidence:
+
+- System information output.
+- Memory and disk usage.
+- Service status and log analysis.
+- Network interface and routing information.
+- System health report generated by a Bash script.
+- A documented troubleshooting incident.
+
+Avoid uploading sensitive logs or personal network information.
+
+## 12. Roadmap
+
+- [ ] Record verified hardware and operating system specifications.
+- [ ] Document system resources and storage.
+- [ ] Inspect running and failed services.
+- [ ] Review users, groups, and permissions.
+- [ ] Document network configuration.
+- [ ] Create a system health reporting script.
+- [ ] Evaluate SSH configuration.
+- [ ] Complete a troubleshooting case study.
+- [ ] Document backup and recovery procedures.
+
+## 13. Current Status
+
+**Status:** In progress.
+
+The project is being developed on an existing Linux Mint installation. Tasks will be marked complete only after implementation and verification.
+
+---
+
+Part of the ThinkCentre Home Lab portfolio.
